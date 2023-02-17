@@ -16,6 +16,7 @@ pipeline {
                     cp assets/settings.xml ${M2_HOME}/
                     ls -lah ${M2_HOME}
                     java -version
+                    mvn -version
                 '''
             }
         }
@@ -26,7 +27,7 @@ pipeline {
         }
         stage('Build all') {
             steps {
-                sh "cd backend && mvn -Drepo.id=snapshots -Drepo.login=$REPO_USER -Drepo.pwd=$REPO_USER_PWD clean deploy"
+                sh "cd backend && mvn -Drepo.id=snapshots clean deploy"
             }
         }
     }
