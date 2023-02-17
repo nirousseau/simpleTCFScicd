@@ -18,6 +18,11 @@ pipeline {
                 '''
             }
         }
+        stage('Verify') {
+            steps {
+                sh "cd backend && mvn clean verify"
+            }
+        }
         stage('Build all') {
             steps {
                 sh "cd backend && mvn -Drepo.id=snapshots -Drepo.login=$REPO_USER -Drepo.pwd=$REPO_USER_PWD clean deploy"
