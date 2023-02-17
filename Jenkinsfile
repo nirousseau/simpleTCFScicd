@@ -7,6 +7,16 @@ pipeline {
        REPO_USER_PWD = credentials('artifactory-apikey-id')
     }
     stages {
+       stage ('Initialize') {
+            steps {
+                sh '''
+                    echo "PATH = ${PATH}"
+                    echo "M2_HOME = ${M2_HOME}"
+                    cp assets/settings.xml ${M2_HOME}/
+                    ls -lah ${M2_HOME}
+                '''
+            }
+        }
         stage('Build all') {
             steps {
                 sh "cd backend && mvn -Drepo.id=snapshots -Drepo.login=$REPO_USER -Drepo.pwd=$REPO_USER_PWD clean deploy"
