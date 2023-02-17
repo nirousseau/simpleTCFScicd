@@ -124,12 +124,4 @@
         </plugins>
     </build>
 
-    <distributionManagement>
-        <snapshotRepository>
-            <id>snapshots</id>
-            <name>0375b9d96ca0-snapshots</name>
-            <url>http://vmpx17.polytech.unice.fr:8081/artifactory/tcf-libs-snapshot-local</url>
-        </snapshotRepository>
-    </distributionManagement>
-
 </project>
