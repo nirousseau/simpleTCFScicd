@@ -13,8 +13,9 @@ pipeline {
                 sh '''
                     echo "PATH = ${PATH}"
                     echo "M2_HOME = ${M2_HOME}"
-                    cp assets/settings.xml ${M2_HOME}/
+                    #cp assets/settings.xml ${M2_HOME}/
                     ls -lah ${M2_HOME}
+                    java -version
                 '''
             }
         }
