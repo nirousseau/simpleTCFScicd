@@ -1,15 +1,21 @@
 pipeline {
-    agent any
-    options {
-        // Timeout counter starts AFTER agent is allocated
-        timeout(time: 30, unit: 'SECONDS')
-    }
+    agent none
     stages {
-        stage('Example') {
+        stage('Back-end') {
+            agent {
+                docker { image 'maven:3.9.0-eclipse-temurin-11' }
+            }
             steps {
-                echo 'Hello World Nikita'
+                sh 'mvn --version'
             }
         }
+//         stage('Front-end') {
+//             agent {
+//                 docker { image 'node:16.13.1-alpine' }
+//             }
+//             steps {
+//                 sh 'node --version'
+//             }
+//         }
     }
 }
-
