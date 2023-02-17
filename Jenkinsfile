@@ -8,9 +8,6 @@ pipeline {
     }
     stages {
         stage('Build all') {
-            when {
-                expression { env.BRANCH_NAME == 'feature/cicd' }
-            }
             steps {
                 sh "mvn -Drepo.id=snapshots -Drepo.login=$REPO_USER -Drepo.pwd=$REPO_USER_PWD clean deploy"
             }
