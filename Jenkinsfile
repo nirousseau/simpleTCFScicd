@@ -1,4 +1,5 @@
 // https://github.com/CookieFactoryInSpring/demo-module-maven/blob/demo-jenkins/Jenkinsfile
+// https://maven.apache.org/guides/introduction/introduction-to-the-lifecycle.html
 
 pipeline {
     agent any
