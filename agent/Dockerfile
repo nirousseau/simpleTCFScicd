@@ -6,7 +6,7 @@ ENV M2_HOME="/home/jenkins/.m2"
 RUN mkdir -p ~/.local/bin \
     && mkdir -p ~/.m2 \
     # Maven
-    && curl -L https://dlcdn.apache.org/maven/maven-3/3.9.0/binaries/apache-maven-3.9.0-bin.tar.gz --output maven.tgz \
+    && curl -L https://dlcdn.apache.org/maven/maven-3/3.6.3/binaries/apache-maven-3.6.3-bin.tar.gz --output maven.tgz \
     && tar xzvf maven.tgz \
     && mv apache-maven-*/* ~/.local/ \
     && rm -rf apache-maven-*/ maven.tgz \
