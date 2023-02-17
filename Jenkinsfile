@@ -1,21 +1,19 @@
+# https://github.com/CookieFactoryInSpring/demo-module-maven/blob/demo-jenkins/Jenkinsfile
+
 pipeline {
-    agent none
+    agent any
+    environment {
+       REPO_USER = credentials('artifactory-user-id')
+       REPO_USER_PWD = credentials('artifactory-apikey-id')
+    }
     stages {
-        stage('Back-end') {
-            agent {
-                docker { image 'maven:3.9.0-eclipse-temurin-11' }
+        stage('Build all') {
+            when {
+                expression { env.BRANCH_NAME == 'feature/cicd' }
             }
             steps {
-                sh 'mvn --version'
+                sh "mvn -Drepo.id=snapshots -Drepo.login=$REPO_USER -Drepo.pwd=$REPO_USER_PWD clean deploy"
             }
         }
-//         stage('Front-end') {
-//             agent {
-//                 docker { image 'node:16.13.1-alpine' }
-//             }
-//             steps {
-//                 sh 'node --version'
-//             }
-//         }
     }
 }
