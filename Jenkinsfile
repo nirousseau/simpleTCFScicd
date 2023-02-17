@@ -1,4 +1,4 @@
-# https://github.com/CookieFactoryInSpring/demo-module-maven/blob/demo-jenkins/Jenkinsfile
+// https://github.com/CookieFactoryInSpring/demo-module-maven/blob/demo-jenkins/Jenkinsfile
 
 pipeline {
     agent any
