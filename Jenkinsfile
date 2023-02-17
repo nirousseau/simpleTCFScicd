@@ -9,7 +9,7 @@ pipeline {
     stages {
         stage('Build all') {
             steps {
-                sh "mvn -Drepo.id=snapshots -Drepo.login=$REPO_USER -Drepo.pwd=$REPO_USER_PWD clean deploy"
+                sh "cd backend && mvn -Drepo.id=snapshots -Drepo.login=$REPO_USER -Drepo.pwd=$REPO_USER_PWD clean deploy"
             }
         }
     }
